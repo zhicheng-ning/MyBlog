@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.5, 8.5" name="MyBlog">
+  <DataContextMoniker Name="/MyBlogDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0380a9f5-f80a-407f-9414-064da979799c" absoluteBounds="6.5, 4.5, 2, 1.9068933105468755">
+      <DataClassMoniker Name="/MyBlogDataContext/blog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a6f64e19-1102-4cea-a951-4d9c77b5169b" absoluteBounds="6.515, 4.96, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c417720a-2504-4ccb-97de-03b6c4b95182" absoluteBounds="3.75, 0.75, 2, 1.3525109863281251">
+      <DataClassMoniker Name="/MyBlogDataContext/blogType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9ddaab81-d527-4a05-974e-7949d4a23e7c" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9e2d1285-8acd-42b7-af3c-88f9c1f6a8d3" absoluteBounds="9.25, 4.625, 2, 1.7220992024739577">
+      <DataClassMoniker Name="/MyBlogDataContext/comment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7fc2ba2a-2253-4cd6-a4b3-27982440bfb4" absoluteBounds="9.265, 5.085, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a2012929-8768-4a69-87bf-7ffd69a70a10" absoluteBounds="3.5, 3.375, 2, 1.7220992024739577">
+      <DataClassMoniker Name="/MyBlogDataContext/photo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bca562ea-40b1-401f-9be9-2c41c50679cd" absoluteBounds="3.515, 3.835, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="21625100-9d1f-429e-b1e3-f48d2bd29774" absoluteBounds="3.5, 5.75, 2, 1.7220992024739577">
+      <DataClassMoniker Name="/MyBlogDataContext/message" />
+      <nestedChildShapes>
+        <elementListCompartment Id="030d2299-b520-4f9e-bf70-f44c31f065c2" absoluteBounds="3.515, 6.21, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7ce28b46-3458-401f-aa45-61bc4526e8f9" absoluteBounds="0.75, 4.625, 2, 1.7220992024739577">
+      <DataClassMoniker Name="/MyBlogDataContext/user" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ccc7272-ba4a-42df-a344-bb13ebf3eed4" absoluteBounds="0.765, 5.085, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.65625 : 2.10251098632813); (5.65625 : 5.42354960123698); (6.16666666666667 : 5.42354960123698 : JumpStart); (6.33333333333333 : 5.42354960123698 : JumpEnd); (6.5 : 5.42354960123698)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyBlogDataContext/blogType/blogType_blog" />
+      <nodes>
+        <classShapeMoniker Id="c417720a-2504-4ccb-97de-03b6c4b95182" />
+        <classShapeMoniker Id="0380a9f5-f80a-407f-9414-064da979799c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 5.48604960123698); (9.25 : 5.48604960123698)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyBlogDataContext/blog/blog_comment" />
+      <nodes>
+        <classShapeMoniker Id="0380a9f5-f80a-407f-9414-064da979799c" />
+        <classShapeMoniker Id="9e2d1285-8acd-42b7-af3c-88f9c1f6a8d3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.61802480061849); (6.16666666666667 : 5.61802480061849 : JumpStart); (6.33333333333333 : 5.61802480061849 : JumpEnd); (6.5 : 5.61802480061849)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyBlogDataContext/user/user_blog" />
+      <nodes>
+        <classShapeMoniker Id="7ce28b46-3458-401f-aa45-61bc4526e8f9" />
+        <classShapeMoniker Id="0380a9f5-f80a-407f-9414-064da979799c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.29157440185547); (5.57291666666667 : 5.29157440185547 : JumpStart); (5.73958333333333 : 5.29157440185547 : JumpEnd); (6.25 : 5.29157440185547); (6.25 : 6.65689331054688); (10.25 : 6.65689331054688); (10.25 : 6.34709920247396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyBlogDataContext/user/user_comment" />
+      <nodes>
+        <classShapeMoniker Id="7ce28b46-3458-401f-aa45-61bc4526e8f9" />
+        <classShapeMoniker Id="9e2d1285-8acd-42b7-af3c-88f9c1f6a8d3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.86104960123698); (3.5 : 4.86104960123698)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyBlogDataContext/user/user_photo" />
+      <nodes>
+        <classShapeMoniker Id="7ce28b46-3458-401f-aa45-61bc4526e8f9" />
+        <classShapeMoniker Id="a2012929-8768-4a69-87bf-7ffd69a70a10" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.04854960123698); (3.5 : 6.04854960123698)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyBlogDataContext/user/user_message" />
+      <nodes>
+        <classShapeMoniker Id="7ce28b46-3458-401f-aa45-61bc4526e8f9" />
+        <classShapeMoniker Id="21625100-9d1f-429e-b1e3-f48d2bd29774" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

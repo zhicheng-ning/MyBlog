@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MyBlog" Class="MyBlogDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\大学学习\大三下\web应用程序设计\期末大作业\MyBlogWork综合版V2.0\MyBlogWork综合版V1.0\MyBlogWork\MyBlog.Web\App_Data\MyBlog.mdf;Integrated Security=True" SettingsObjectName="MyBlog.DAL.Properties.Settings" SettingsPropertyName="MyBlogConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.blog" Member="blog">
+    <Type Name="blog">
+      <Column Name="blogId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="typeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="blogTitle" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="blogContent" Type="System.String" DbType="VarChar(8000) NOT NULL" CanBeNull="false" />
+      <Column Name="blogTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="blog_comment" Member="comment" ThisKey="blogId" OtherKey="blogId" Type="comment" />
+      <Association Name="blogType_blog" Member="blogType" ThisKey="typeId" OtherKey="typeId" Type="blogType" IsForeignKey="true" />
+      <Association Name="user_blog" Member="user" ThisKey="userId" OtherKey="userId" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.blogType" Member="blogType">
+    <Type Name="blogType">
+      <Column Name="typeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="typeName" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="typeInfo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="blogType_blog" Member="blog" ThisKey="typeId" OtherKey="typeId" Type="blog" />
+    </Type>
+  </Table>
+  <Table Name="dbo.comment" Member="comment">
+    <Type Name="comment">
+      <Column Name="commentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="blogId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="comContent" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="comTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="blog_comment" Member="blog" ThisKey="blogId" OtherKey="blogId" Type="blog" IsForeignKey="true" />
+      <Association Name="user_comment" Member="user" ThisKey="userId" OtherKey="userId" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.photo" Member="photo">
+    <Type Name="photo">
+      <Column Name="photoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="photoName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="photoUrl" Type="System.String" DbType="VarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="photoTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="user_photo" Member="user" ThisKey="userId" OtherKey="userId" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.message" Member="message">
+    <Type Name="message">
+      <Column Name="messageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="authorId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="messageContent" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="messageTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="user_message" Member="user" ThisKey="userId" OtherKey="userId" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[user]" Member="user">
+    <Type Name="user">
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="tel" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="user_blog" Member="blog" ThisKey="userId" OtherKey="userId" Type="blog" />
+      <Association Name="user_comment" Member="comment" ThisKey="userId" OtherKey="userId" Type="comment" />
+      <Association Name="user_photo" Member="photo" ThisKey="userId" OtherKey="userId" Type="photo" />
+      <Association Name="user_message" Member="message" ThisKey="userId" OtherKey="userId" Type="message" />
+    </Type>
+  </Table>
+</Database>
